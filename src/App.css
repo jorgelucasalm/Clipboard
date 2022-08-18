@@ -29,6 +29,7 @@ input:disabled {
 }
 
 button {
+  cursor: pointer;
   padding: 1rem;
   border-style: none;
   border-radius: 3px;

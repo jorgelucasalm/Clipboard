@@ -7,6 +7,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
   const [isDisable, setIsDisable] = useState(false)
+  const [name, setName] = useState('')
   const [campanha, setCampanha] = useState('')
   const [textoCampanha, setTextCampanha] = useState('')
   console.log(campanha);
@@ -15,6 +16,14 @@ function App() {
     <container>
       <div className="inputs">
         <button onClick={() => setIsDisable(!isDisable)}><FontAwesomeIcon icon={faLock} /></button>
+        <div className="clipbord">
+          <input type="text" disabled={isDisable} onChange={(e) => setName(e.target.value)} />
+          <CopyToClipboard text={name}>
+            <button>
+              <FontAwesomeIcon icon={faPaste} />
+            </button>
+          </CopyToClipboard>
+        </div>
         <div className="clipbord">
           <input type="text" disabled={isDisable} onChange={(e) => setCampanha(e.target.value)} />
           <CopyToClipboard text={campanha}>
@@ -25,14 +34,14 @@ function App() {
         </div>
         <div className="clipbord">
           <input type="text" value={"BLACKLIST"} disabled="true" />
-          <CopyToClipboard text={campanha}>
+          <CopyToClipboard text={'BLACKLIST'}>
             <button>
               <FontAwesomeIcon icon={faPaste} />
             </button>
           </CopyToClipboard>
         </div>
         <div className="clipbord">
-          <input type="text" disabled={isDisable} onChange={(e) => setTextCampanha(e.target.value)} />
+          <textarea type="text" disabled={isDisable} onChange={(e) => setTextCampanha(e.target.value)} />
           <CopyToClipboard text={textoCampanha}>
             <button>
               <FontAwesomeIcon icon={faPaste} />
