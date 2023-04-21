@@ -16,8 +16,13 @@ container {
   gap: 1rem;
 }
 
-.inputs input {
-  width: 65%;
+textarea{
+  resize: vertical;
+  height: 100px;
+}
+
+.inputs input, textarea {
+  width: 200px;
   padding: 1rem;
   border: none;
   border-radius:  10px 0px 0px 10px;
@@ -35,7 +40,13 @@ button {
   border-radius: 3px;
 }
 
+.clipbord {
+  display: flex;
+  align-items: center;
+}
+
 .clipbord button {
+  height: 100%;
   border-radius: 0px 10px 10px 0px;
   background-color: #4c4c4c;
   color: #fff;

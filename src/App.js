@@ -10,14 +10,16 @@ function App() {
   const [name, setName] = useState('')
   const [campanha, setCampanha] = useState('')
   const [textoCampanha, setTextCampanha] = useState('')
-  console.log(campanha);
 
   return (
     <container>
       <div className="inputs">
         <button onClick={() => setIsDisable(!isDisable)}><FontAwesomeIcon icon={faLock} /></button>
         <div className="clipbord">
-          <input type="text" disabled={isDisable} onChange={(e) => setName(e.target.value)} />
+          <input type="text" disabled={isDisable} value={name} onChange={(e) => {
+            setName(e.target.value)
+            setCampanha('CAMPANHA' + e.target.value.replace(/[^a-zA-Z0-9]/g, ''))
+          }} />
           <CopyToClipboard text={name}>
             <button>
               <FontAwesomeIcon icon={faPaste} />
@@ -25,7 +27,7 @@ function App() {
           </CopyToClipboard>
         </div>
         <div className="clipbord">
-          <input type="text" disabled={isDisable} onChange={(e) => setCampanha(e.target.value)} />
+          <input type="text" disabled="true" value={campanha} />
           <CopyToClipboard text={campanha}>
             <button>
               <FontAwesomeIcon icon={faPaste} />
